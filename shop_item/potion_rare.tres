@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://c2gx6ryhik2ix"]
+
+[ext_resource type="Script" path="res://shop_item/item_res.gd" id="1_0nkke"]
+[ext_resource type="Texture2D" uid="uid://c0elvsa2flkxq" path="res://shop_item/shop_item_potion_rare.png" id="2_svgp4"]
+
+[resource]
+script = ExtResource("1_0nkke")
+name = "PotionRare"
+price = 1000
+effect_forward = 1
+amount_forward = 4
+effect_back = 1
+amount_back = 1
+texture = ExtResource("2_svgp4")

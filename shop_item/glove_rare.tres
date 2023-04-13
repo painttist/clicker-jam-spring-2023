@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://d2ugnlpuauo03"]
+
+[ext_resource type="Script" path="res://shop_item/item_res.gd" id="1_2vnyu"]
+[ext_resource type="Texture2D" uid="uid://c6y1swyhwo6cv" path="res://shop_item/shop_item_glove_rare.png" id="2_5cb5w"]
+
+[resource]
+script = ExtResource("1_2vnyu")
+name = "GloveRare"
+price = 50
+effect_forward = 0
+amount_forward = 4
+effect_back = 1
+amount_back = 3
+texture = ExtResource("2_5cb5w")

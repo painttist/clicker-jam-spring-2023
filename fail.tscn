@@ -1,0 +1,210 @@
+[gd_scene load_steps=21 format=3 uid="uid://cesflns1aj0b2"]
+
+[ext_resource type="Script" path="res://background/parallax.gd" id="1_emavf"]
+[ext_resource type="Script" path="res://fail.gd" id="1_kwplm"]
+[ext_resource type="Texture2D" uid="uid://d1rgykgtw8x3d" path="res://background/caslte_bg.png" id="2_gtv1n"]
+[ext_resource type="Material" uid="uid://boxtxny7k4rib" path="res://materials/outline.tres" id="3_gmj8r"]
+[ext_resource type="Texture2D" uid="uid://bp4xppi5jltle" path="res://foreground/mountain.png" id="4_f67w4"]
+[ext_resource type="Texture2D" uid="uid://dkcd06e3ura2j" path="res://player/miner.png" id="5_s7dlr"]
+[ext_resource type="Texture2D" uid="uid://bkcqspss1qiqf" path="res://foreground/shop.png" id="6_8s4f7"]
+[ext_resource type="FontFile" uid="uid://dr3eo0r0qtqyf" path="res://fonts/Retro Gaming.ttf" id="7_hvo2c"]
+[ext_resource type="Texture2D" uid="uid://cm2xqqqmc7ehd" path="res://button/button_restart.png" id="9_d2qyd"]
+[ext_resource type="AudioStream" uid="uid://v5gefd8un4ju" path="res://audio/Marimba LOSE.wav" id="10_hu3s5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0c3v"]
+atlas = ExtResource("5_s7dlr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0wvp"]
+atlas = ExtResource("5_s7dlr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5cff"]
+atlas = ExtResource("5_s7dlr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkhxc"]
+atlas = ExtResource("5_s7dlr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4a8ww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0c3v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0wvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5cff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkhxc")
+}],
+"loop": true,
+"name": &"mine",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8hgyy"]
+font = ExtResource("7_hvo2c")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_5yn3g"]
+font = ExtResource("7_hvo2c")
+font_size = 26
+outline_size = 10
+outline_color = Color(0.470588, 0.807843, 0.996078, 1)
+
+[sub_resource type="Animation" id="Animation_40spt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonRestart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_h5ih3"]
+resource_name = "button_wobble"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonRestart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-1.8025, -1.8025, -1.8025),
+"update": 0,
+"values": [Vector2(336, 200), Vector2(336, 184), Vector2(336, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ulu3c"]
+_data = {
+"RESET": SubResource("Animation_40spt"),
+"button_wobble": SubResource("Animation_h5ih3")
+}
+
+[node name="fail" type="Node2D"]
+script = ExtResource("1_kwplm")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_emavf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(704, 0)
+
+[node name="CastleBg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(352, 192)
+scale = Vector2(2, 2)
+texture = ExtResource("2_gtv1n")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = ExtResource("3_gmj8r")
+position = Vector2(155, 303)
+scale = Vector2(2, 2)
+texture = ExtResource("4_f67w4")
+
+[node name="Player" type="Node2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(230, 305)
+scale = Vector2(2, 2)
+
+[node name="Timer" type="Timer" parent="ParallaxBackground/ParallaxLayer2/Player"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer2/Player"]
+material = ExtResource("3_gmj8r")
+sprite_frames = SubResource("SpriteFrames_4a8ww")
+animation = &"idle"
+
+[node name="Shop" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = ExtResource("3_gmj8r")
+position = Vector2(526, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("6_8s4f7")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="ShopItem" type="TextureButton" parent="ParallaxBackground/ParallaxLayer3"]
+offset_left = 507.0
+offset_top = 88.0
+offset_right = 635.0
+offset_bottom = 200.0
+mouse_default_cursor_shape = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -222.0
+offset_top = 65.0
+offset_right = 222.0
+offset_bottom = 126.0
+grow_horizontal = 2
+text = "You failed..."
+label_settings = SubResource("LabelSettings_8hgyy")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Label"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 65.0
+offset_right = 273.0
+offset_bottom = 126.0
+grow_horizontal = 2
+text = "Hint: Good Plan > Click Speed"
+label_settings = SubResource("LabelSettings_5yn3g")
+horizontal_alignment = 1
+
+[node name="ButtonRestart" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 336.0
+offset_top = 200.0
+offset_right = 368.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(16, 16)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_d2qyd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "button_wobble"
+libraries = {
+"": SubResource("AnimationLibrary_ulu3c")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hu3s5")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer3/ShopItem" to="ParallaxBackground/ParallaxLayer3/ShopItem" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonRestart" to="." method="_on_button_restart_pressed"]

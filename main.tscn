@@ -1,0 +1,499 @@
+[gd_scene load_steps=75 format=3 uid="uid://txtaugh0q5wb"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1hem4"]
+[ext_resource type="Script" path="res://background/parallax.gd" id="1_2jg4a"]
+[ext_resource type="Texture2D" uid="uid://dkcd06e3ura2j" path="res://player/miner.png" id="1_2mwbm"]
+[ext_resource type="Texture2D" uid="uid://d1rgykgtw8x3d" path="res://background/caslte_bg.png" id="1_6j3fm"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_nrga0"]
+[ext_resource type="Texture2D" uid="uid://bp4xppi5jltle" path="res://foreground/mountain.png" id="3_2p2jt"]
+[ext_resource type="Material" uid="uid://boxtxny7k4rib" path="res://materials/outline.tres" id="3_pqn0a"]
+[ext_resource type="Texture2D" uid="uid://bkcqspss1qiqf" path="res://foreground/shop.png" id="6_ya56b"]
+[ext_resource type="Texture2D" uid="uid://vmb0yk175aol" path="res://button/button_puase.png" id="8_4syey"]
+[ext_resource type="Script" path="res://button/playpuase.gd" id="8_bow67"]
+[ext_resource type="Script" path="res://shop_item/shop_item.gd" id="8_feldk"]
+[ext_resource type="Texture2D" uid="uid://djr8hcvktrf4x" path="res://button/button_play.png" id="8_veb5j"]
+[ext_resource type="Resource" uid="uid://dvr1pghs2oyoe" path="res://shop_item/glove.tres" id="9_jxo3e"]
+[ext_resource type="Resource" uid="uid://d577tovuguo0" path="res://shop_item/pickaxe.tres" id="9_v0jrj"]
+[ext_resource type="Script" path="res://shop_item/timeline_item_res.gd" id="10_xgdnq"]
+[ext_resource type="Texture2D" uid="uid://hv3g70ebnuto" path="res://shop_item/shop_item_base.png" id="11_jrjrq"]
+[ext_resource type="Script" path="res://timer/timer.gd" id="11_kic37"]
+[ext_resource type="FontFile" uid="uid://dr3eo0r0qtqyf" path="res://fonts/Retro Gaming.ttf" id="11_sfd0d"]
+[ext_resource type="Resource" uid="uid://d2ugnlpuauo03" path="res://shop_item/glove_rare.tres" id="12_6wg0s"]
+[ext_resource type="Texture2D" uid="uid://cdxy67m2fm31o" path="res://shop_item/shop_item_glove.png" id="12_378rw"]
+[ext_resource type="Resource" uid="uid://c5dmfrilc5pg" path="res://shop_item/watch.tres" id="12_1185u"]
+[ext_resource type="Resource" uid="uid://cilk2hjf4bnfb" path="res://shop_item/potion.tres" id="13_3vhtl"]
+[ext_resource type="Resource" uid="uid://c2gx6ryhik2ix" path="res://shop_item/potion_rare.tres" id="13_ul3f5"]
+[ext_resource type="Texture2D" uid="uid://baj1hbyaaukn" path="res://button/button_rewind.png" id="14_pjj4v"]
+[ext_resource type="Script" path="res://labels/money.gd" id="15_e6n05"]
+[ext_resource type="Script" path="res://shop_item/purchased_items.gd" id="19_3uyos"]
+[ext_resource type="Texture2D" uid="uid://cm2xqqqmc7ehd" path="res://button/button_restart.png" id="19_au7yk"]
+[ext_resource type="Script" path="res://labels/upgrade_effect.gd" id="19_nrle1"]
+[ext_resource type="Texture2D" uid="uid://d2nqs1p37mc6s" path="res://shop_item/shop_item_slot.png" id="19_qh1ti"]
+[ext_resource type="AudioStream" uid="uid://dnb3y3x3q8h82" path="res://audio/sfx/POP_Mouth_mono.wav" id="20_n1oed"]
+[ext_resource type="Script" path="res://labels/upgrade_detail.gd" id="22_4iiac"]
+[ext_resource type="AudioStream" uid="uid://ccanufbdh44t8" path="res://audio/sfx/POP_Mouth_Darker_mono.wav" id="23_2s8ls"]
+[ext_resource type="Script" path="res://controls/volume_slider.gd" id="26_gxorx"]
+[ext_resource type="AudioStream" uid="uid://bvgel3ekfbk08" path="res://audio/Platform Action 30s LOOP.wav" id="31_1ieyc"]
+[ext_resource type="AudioStream" uid="uid://wc8xbi3svm28" path="res://audio/Halloween LOOP.wav" id="35_d4c5d"]
+[ext_resource type="Script" path="res://audio/bgm_forward.gd" id="35_ew8kj"]
+[ext_resource type="Script" path="res://audio/bgm_backward.gd" id="37_ifqcg"]
+[ext_resource type="Script" path="res://audio/sfx/click_sfx.gd" id="38_repyl"]
+[ext_resource type="AudioStream" uid="uid://b7lxsp6k7hotk" path="res://audio/sfx/IMPACT_Stone_On_Stone_01_Subtle_mono.wav" id="39_xn4aj"]
+[ext_resource type="AudioStream" uid="uid://c4mm2mirfrfsn" path="res://audio/sfx/IMPACT_Stone_On_Stone_02_Subtle_mono.wav" id="40_e5jsu"]
+[ext_resource type="AudioStream" uid="uid://bnw3vn633ext6" path="res://audio/sfx/IMPACT_Stone_On_Stone_03_Subtle_mono.wav" id="41_15kgw"]
+[ext_resource type="AudioStream" uid="uid://cyehw7uldcy0w" path="res://audio/sfx/IMPACT_Stone_On_Stone_04_Subtle_mono.wav" id="42_u5y2c"]
+[ext_resource type="AudioStream" uid="uid://dvvkwv3r5lhxt" path="res://audio/sfx/IMPACT_Stone_On_Stone_05_mono.wav" id="43_ny73q"]
+[ext_resource type="AudioStream" uid="uid://b7mbrnbkrhixn" path="res://audio/sfx/IMPACT_Stone_On_Stone_06_mono.wav" id="44_4pugs"]
+[ext_resource type="AudioStream" uid="uid://g5brodgk8b7e" path="res://audio/sfx/IMPACT_Stone_On_Stone_07_mono.wav" id="45_hnxws"]
+[ext_resource type="AudioStream" uid="uid://br4ejio7eaph8" path="res://audio/sfx/IMPACT_Stone_On_Stone_08_mono.wav" id="46_4x1ol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0c3v"]
+atlas = ExtResource("1_2mwbm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0wvp"]
+atlas = ExtResource("1_2mwbm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5cff"]
+atlas = ExtResource("1_2mwbm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkhxc"]
+atlas = ExtResource("1_2mwbm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vniip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0c3v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0wvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5cff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkhxc")
+}],
+"loop": true,
+"name": &"mine",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_nt7e4"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("9_v0jrj")
+time = -10.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_xx1mc"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("12_6wg0s")
+time = -5.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_7on4l"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("13_3vhtl")
+time = 5.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_yqml1"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("9_jxo3e")
+time = 15.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_8m73a"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("12_6wg0s")
+time = 20.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_o841q"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("13_3vhtl")
+time = 25.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_1frm5"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("12_1185u")
+time = 35.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_5myts"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("13_ul3f5")
+time = 45.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_jr78o"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("9_v0jrj")
+time = 60.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_r8cjt"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("12_6wg0s")
+time = 65.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_223yt"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("9_jxo3e")
+time = 75.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_7w22c"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("13_ul3f5")
+time = 80.0
+duration = 5.0
+
+[sub_resource type="Resource" id="Resource_ulkqy"]
+script = ExtResource("10_xgdnq")
+res = ExtResource("12_1185u")
+time = 85.0
+duration = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ytam"]
+bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfp4o"]
+bg_color = Color(0.842098, 0.875542, 0.894352, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k84rc"]
+font = ExtResource("11_sfd0d")
+font_size = 28
+font_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3h7ia"]
+font = ExtResource("11_sfd0d")
+font_size = 22
+font_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tasux"]
+font = ExtResource("11_sfd0d")
+font_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxria"]
+font = ExtResource("11_sfd0d")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_plhg7"]
+font = ExtResource("11_sfd0d")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mqgpk"]
+font = ExtResource("11_sfd0d")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_w5vwy"]
+font = ExtResource("11_sfd0d")
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q4sf"]
+font = ExtResource("11_sfd0d")
+font_size = 45
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1hem4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_2jg4a")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(704, 0)
+
+[node name="CastleBg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(352, 192)
+scale = Vector2(2, 2)
+texture = ExtResource("1_6j3fm")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = ExtResource("3_pqn0a")
+position = Vector2(155, 303)
+scale = Vector2(2, 2)
+texture = ExtResource("3_2p2jt")
+
+[node name="Player" type="Node2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(230, 305)
+scale = Vector2(2, 2)
+script = ExtResource("1_nrga0")
+
+[node name="Timer" type="Timer" parent="ParallaxBackground/ParallaxLayer2/Player"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer2/Player"]
+material = ExtResource("3_pqn0a")
+sprite_frames = SubResource("SpriteFrames_vniip")
+animation = &"idle"
+frame_progress = 0.250481
+
+[node name="Shop" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = ExtResource("3_pqn0a")
+position = Vector2(526, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("6_ya56b")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="ShopItem" type="TextureButton" parent="ParallaxBackground/ParallaxLayer3" node_paths=PackedStringArray("button_rewind")]
+offset_left = 507.0
+offset_top = 88.0
+offset_right = 635.0
+offset_bottom = 200.0
+mouse_default_cursor_shape = 2
+script = ExtResource("8_feldk")
+timeline = Array[ExtResource("10_xgdnq")]([SubResource("Resource_nt7e4"), SubResource("Resource_xx1mc"), SubResource("Resource_7on4l"), SubResource("Resource_yqml1"), SubResource("Resource_8m73a"), SubResource("Resource_o841q"), SubResource("Resource_1frm5"), SubResource("Resource_5myts"), SubResource("Resource_jr78o"), SubResource("Resource_r8cjt"), SubResource("Resource_223yt"), SubResource("Resource_7w22c"), SubResource("Resource_ulkqy")])
+button_rewind = NodePath("../../../PlayPauseControl/Control/ButtonRewind")
+
+[node name="ShopItemBase" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+layout_mode = 0
+scale = Vector2(2, 2)
+texture = ExtResource("11_jrjrq")
+
+[node name="ShopItemIcon" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(2, 2)
+texture = ExtResource("12_378rw")
+
+[node name="ProgressBar" type="ProgressBar" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 26.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1ytam")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mfp4o")
+value = 50.0
+show_percentage = false
+
+[node name="LabelEffect" type="Label" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 26.0
+offset_right = 121.0
+offset_bottom = 65.0
+text = "+2"
+label_settings = SubResource("LabelSettings_k84rc")
+horizontal_alignment = 1
+
+[node name="LabelPrice" type="Label" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 77.0
+offset_right = 119.0
+offset_bottom = 108.0
+text = "$1000"
+label_settings = SubResource("LabelSettings_3h7ia")
+horizontal_alignment = 1
+
+[node name="LabelPerClick" type="Label" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 55.0
+offset_right = 120.0
+offset_bottom = 79.0
+text = "/click"
+label_settings = SubResource("LabelSettings_tasux")
+horizontal_alignment = 1
+
+[node name="SFX" type="AudioStreamPlayer" parent="ParallaxBackground/ParallaxLayer3/ShopItem"]
+stream = ExtResource("20_n1oed")
+volume_db = -10.0
+
+[node name="PlayPauseControl" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("8_bow67")
+
+[node name="Control" type="Control" parent="PlayPauseControl"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 12.0
+offset_right = 440.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+
+[node name="ButtonPlay" type="TextureButton" parent="PlayPauseControl/Control"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_veb5j")
+
+[node name="ButtonPause" type="TextureButton" parent="PlayPauseControl/Control"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_4syey")
+
+[node name="SFX" type="AudioStreamPlayer" parent="PlayPauseControl/Control/ButtonPause"]
+stream = ExtResource("23_2s8ls")
+volume_db = -10.0
+
+[node name="ButtonRewind" type="TextureButton" parent="PlayPauseControl/Control"]
+visible = false
+layout_mode = 0
+offset_left = -32.0
+offset_bottom = 32.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("14_pjj4v")
+
+[node name="PauseMenu" type="CanvasLayer" parent="PlayPauseControl"]
+layer = 0
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PlayPauseControl/PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54902)
+
+[node name="ButtonRestart" type="TextureButton" parent="PlayPauseControl/PauseMenu"]
+offset_left = 624.0
+offset_top = 309.0
+offset_right = 656.0
+offset_bottom = 341.0
+scale = Vector2(2, 2)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("19_au7yk")
+
+[node name="UpgradeEffectLabel" type="Label" parent="PlayPauseControl/PauseMenu"]
+offset_left = 20.0
+offset_top = 233.0
+offset_right = 296.0
+offset_bottom = 308.0
+text = "0/4 items"
+label_settings = SubResource("LabelSettings_jxria")
+script = ExtResource("22_4iiac")
+
+[node name="VolumeSlider" type="HSlider" parent="PlayPauseControl/PauseMenu"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = -39.0
+offset_right = 249.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+min_value = -3.0
+max_value = 4.0
+step = 0.01
+script = ExtResource("26_gxorx")
+
+[node name="Label" type="Label" parent="PlayPauseControl/PauseMenu/VolumeSlider"]
+layout_mode = 0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = -1.0
+text = "Volume:"
+label_settings = SubResource("LabelSettings_plhg7")
+horizontal_alignment = 2
+
+[node name="GoalLabel" type="Label" parent="PlayPauseControl"]
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 277.0
+offset_bottom = 81.0
+text = "GOAL: $30,000"
+label_settings = SubResource("LabelSettings_mqgpk")
+
+[node name="MoneyLabel" type="Label" parent="PlayPauseControl"]
+offset_left = 19.0
+offset_top = 60.0
+offset_right = 295.0
+offset_bottom = 135.0
+text = "$0"
+label_settings = SubResource("LabelSettings_w5vwy")
+script = ExtResource("15_e6n05")
+
+[node name="UpgradeEffectLabel" type="Label" parent="PlayPauseControl"]
+offset_left = 20.0
+offset_top = 137.0
+offset_right = 296.0
+offset_bottom = 212.0
+text = "$1 /click"
+label_settings = SubResource("LabelSettings_jxria")
+script = ExtResource("19_nrle1")
+
+[node name="TimerLabel" type="Label" parent="PlayPauseControl"]
+offset_left = 519.0
+offset_top = 8.0
+offset_right = 673.0
+offset_bottom = 74.0
+text = "02:00"
+label_settings = SubResource("LabelSettings_6q4sf")
+script = ExtResource("11_kic37")
+
+[node name="PurchasedItems" type="Node2D" parent="PlayPauseControl"]
+scale = Vector2(2, 2)
+script = ExtResource("19_3uyos")
+
+[node name="ItemSlot" type="Sprite2D" parent="PlayPauseControl/PurchasedItems"]
+position = Vector2(38.5, 105.5)
+texture = ExtResource("19_qh1ti")
+
+[node name="ItemImage" type="Sprite2D" parent="PlayPauseControl/PurchasedItems/ItemSlot"]
+
+[node name="ItemSlot2" type="Sprite2D" parent="PlayPauseControl/PurchasedItems"]
+position = Vector2(66.5, 105.5)
+texture = ExtResource("19_qh1ti")
+
+[node name="ItemImage" type="Sprite2D" parent="PlayPauseControl/PurchasedItems/ItemSlot2"]
+
+[node name="ItemSlot3" type="Sprite2D" parent="PlayPauseControl/PurchasedItems"]
+position = Vector2(94.5, 105.5)
+texture = ExtResource("19_qh1ti")
+
+[node name="ItemImage" type="Sprite2D" parent="PlayPauseControl/PurchasedItems/ItemSlot3"]
+
+[node name="ItemSlot4" type="Sprite2D" parent="PlayPauseControl/PurchasedItems"]
+position = Vector2(122.5, 105.5)
+texture = ExtResource("19_qh1ti")
+
+[node name="ItemImage" type="Sprite2D" parent="PlayPauseControl/PurchasedItems/ItemSlot4"]
+
+[node name="BGMForward" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_1ieyc")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("35_ew8kj")
+
+[node name="BGMBackward" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_d4c5d")
+volume_db = -10.0
+script = ExtResource("37_ifqcg")
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
+script = ExtResource("38_repyl")
+click_sfx = Array[AudioStream]([ExtResource("39_xn4aj"), ExtResource("40_e5jsu"), ExtResource("41_15kgw"), ExtResource("42_u5y2c"), ExtResource("43_ny73q"), ExtResource("44_4pugs"), ExtResource("45_hnxws"), ExtResource("46_4x1ol")])
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer3/ShopItem" to="ParallaxBackground/ParallaxLayer3/ShopItem" method="_on_pressed"]
+[connection signal="pressed" from="PlayPauseControl/Control/ButtonPlay" to="PlayPauseControl" method="_on_button_play_pressed"]
+[connection signal="pressed" from="PlayPauseControl/Control/ButtonPause" to="PlayPauseControl" method="_on_button_pause_pressed"]
+[connection signal="pressed" from="PlayPauseControl/Control/ButtonRewind" to="PlayPauseControl" method="_on_button_rewind_pressed"]
+[connection signal="pressed" from="PlayPauseControl/PauseMenu/ButtonRestart" to="PlayPauseControl" method="_on_button_restart_pressed"]
+[connection signal="value_changed" from="PlayPauseControl/PauseMenu/VolumeSlider" to="PlayPauseControl/PauseMenu/VolumeSlider" method="_on_value_changed"]

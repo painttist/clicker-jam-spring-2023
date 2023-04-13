@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://d577tovuguo0"]
+
+[ext_resource type="Script" path="res://shop_item/item_res.gd" id="1_gixsh"]
+[ext_resource type="Texture2D" uid="uid://da3k5jfnmb50i" path="res://shop_item/shop_item_pickaxe_rare.png" id="2_dda0i"]
+
+[resource]
+script = ExtResource("1_gixsh")
+name = "Pickaxe"
+price = 10
+effect_forward = 0
+amount_forward = 10
+effect_back = 1
+amount_back = 3
+texture = ExtResource("2_dda0i")

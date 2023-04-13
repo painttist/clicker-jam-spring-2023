@@ -1,0 +1,189 @@
+[gd_scene load_steps=19 format=3 uid="uid://hrptg86yxyoc"]
+
+[ext_resource type="Script" path="res://background/parallax.gd" id="1_1lnnp"]
+[ext_resource type="Texture2D" uid="uid://d1rgykgtw8x3d" path="res://background/caslte_bg.png" id="2_655il"]
+[ext_resource type="Material" uid="uid://boxtxny7k4rib" path="res://materials/outline.tres" id="3_e5k4b"]
+[ext_resource type="Texture2D" uid="uid://bp4xppi5jltle" path="res://foreground/mountain.png" id="4_gyjvn"]
+[ext_resource type="Texture2D" uid="uid://dkcd06e3ura2j" path="res://player/miner.png" id="5_iwj45"]
+[ext_resource type="Texture2D" uid="uid://bkcqspss1qiqf" path="res://foreground/shop.png" id="6_nfsd0"]
+[ext_resource type="FontFile" uid="uid://dr3eo0r0qtqyf" path="res://fonts/Retro Gaming.ttf" id="7_6pb36"]
+[ext_resource type="AudioStream" uid="uid://b7kyb7jf3yrov" path="res://audio/Marimba MEDIUM WIN.wav" id="8_j4qql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0c3v"]
+atlas = ExtResource("5_iwj45")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0wvp"]
+atlas = ExtResource("5_iwj45")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5cff"]
+atlas = ExtResource("5_iwj45")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkhxc"]
+atlas = ExtResource("5_iwj45")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg4tf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0c3v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0wvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5cff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkhxc")
+}],
+"loop": true,
+"name": &"mine",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgvdo"]
+font = ExtResource("7_6pb36")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfo5r"]
+font = ExtResource("7_6pb36")
+font_size = 26
+outline_size = 10
+outline_color = Color(0.470588, 0.807843, 0.996078, 1)
+
+[sub_resource type="Animation" id="Animation_e6nhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_t4uec"]
+resource_name = "title_wobble"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -1.31951),
+"update": 0,
+"values": [Vector2(130, 65), Vector2(130, 60), Vector2(130, 65)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1y72a"]
+_data = {
+"RESET": SubResource("Animation_e6nhh"),
+"title_wobble": SubResource("Animation_t4uec")
+}
+
+[node name="success" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_1lnnp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(704, 0)
+
+[node name="CastleBg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(352, 192)
+scale = Vector2(2, 2)
+texture = ExtResource("2_655il")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = ExtResource("3_e5k4b")
+position = Vector2(155, 303)
+scale = Vector2(2, 2)
+texture = ExtResource("4_gyjvn")
+
+[node name="Player" type="Node2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(230, 305)
+scale = Vector2(2, 2)
+
+[node name="Timer" type="Timer" parent="ParallaxBackground/ParallaxLayer2/Player"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer2/Player"]
+material = ExtResource("3_e5k4b")
+sprite_frames = SubResource("SpriteFrames_wg4tf")
+animation = &"idle"
+
+[node name="Shop" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = ExtResource("3_e5k4b")
+position = Vector2(526, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("6_nfsd0")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="ShopItem" type="TextureButton" parent="ParallaxBackground/ParallaxLayer3"]
+offset_left = 507.0
+offset_top = 88.0
+offset_right = 635.0
+offset_bottom = 200.0
+mouse_default_cursor_shape = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 130.0
+offset_top = 48.0
+offset_right = 574.0
+offset_bottom = 109.0
+grow_horizontal = 2
+text = "SUCCESS!"
+label_settings = SubResource("LabelSettings_mgvdo")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Label"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 65.0
+offset_right = 273.0
+offset_bottom = 126.0
+grow_horizontal = 2
+text = " Thanks for playing!"
+label_settings = SubResource("LabelSettings_tfo5r")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "title_wobble"
+libraries = {
+"": SubResource("AnimationLibrary_1y72a")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j4qql")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer3/ShopItem" to="ParallaxBackground/ParallaxLayer3/ShopItem" method="_on_pressed"]

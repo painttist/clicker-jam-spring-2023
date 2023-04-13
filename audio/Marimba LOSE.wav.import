@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v5gefd8un4ju"
+path="res://.godot/imported/Marimba LOSE.wav-6ecb52e0fcda333553c220a1ad58c8c7.sample"
+
+[deps]
+
+source_file="res://audio/Marimba LOSE.wav"
+dest_files=["res://.godot/imported/Marimba LOSE.wav-6ecb52e0fcda333553c220a1ad58c8c7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

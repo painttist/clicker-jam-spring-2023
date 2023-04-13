@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://dvr1pghs2oyoe"]
+
+[ext_resource type="Script" path="res://shop_item/item_res.gd" id="1_f2mo1"]
+[ext_resource type="Texture2D" uid="uid://cdxy67m2fm31o" path="res://shop_item/shop_item_glove.png" id="2_npggm"]
+
+[resource]
+script = ExtResource("1_f2mo1")
+name = "Glove"
+price = 10
+effect_forward = 0
+amount_forward = 2
+effect_back = 1
+amount_back = 3
+texture = ExtResource("2_npggm")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://c5dmfrilc5pg"]
+
+[ext_resource type="Script" path="res://shop_item/item_res.gd" id="1_hphwl"]
+[ext_resource type="Texture2D" uid="uid://b1o2j0nfmowgr" path="res://shop_item/shop_item_watch.png" id="2_khanx"]
+
+[resource]
+script = ExtResource("1_hphwl")
+name = "Watch"
+price = 125
+effect_forward = 1
+amount_forward = 1
+effect_back = 1
+amount_back = 1
+texture = ExtResource("2_khanx")
